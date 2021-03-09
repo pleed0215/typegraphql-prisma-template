@@ -77,12 +77,12 @@ const { typeDefs, resolvers: appResolvers } = await buildTypeDefsAndResolvers({
 });
 ```
 
-    - resolvers.ts/js로 끝나는 파일들에서 typeDefs와 resolvers를 읽어오도록 설정해줌.
-    - pubSub
-        src/pubSub.ts에서 pubSub instance를 만들어서 exporting해준 것을 여기서 설정해줌.
-    - authChecker
-        - nestjs의 auth guard와 비슷한 역할을 함.
-        src/auth/auth.checker.ts
+- resolvers.ts/js로 끝나는 파일들에서 typeDefs와 resolvers를 읽어오도록 설정해줌.
+- pubSub
+  src/pubSub.ts에서 pubSub instance를 만들어서 exporting해준 것을 여기서 설정해줌.
+- authChecker
+  - nestjs의 auth guard와 비슷한 역할을 함.
+    src/auth/auth.checker.ts
 
 ```ts
 export const customAuthChecker: AuthChecker<MyContextType> = (
@@ -93,12 +93,12 @@ export const customAuthChecker: AuthChecker<MyContextType> = (
 };
 ```
 
-        - 소스 자체가 아주 간단함. context.user 여부에 따라서 authorization이 결정이 됨.
-        - resolvers에서 @Authorization() decorator를 사용하면 작동함.
-        - [AuthChecker](https://typegraphql.com/docs/authorization.html)
-            공식 사이트의 예제를 보면 role based authorization도 가능하다.
+- 소스 자체가 아주 간단함. context.user 여부에 따라서 authorization이 결정이 됨.
+- resolvers에서 @Authorization() decorator를 사용하면 작동함.
+- [AuthChecker](https://typegraphql.com/docs/authorization.html)
+  공식 사이트의 예제를 보면 role based authorization도 가능하다.
 
-        말이 나온김에 src/auth/auth.decorator.ts도 보면...
+말이 나온김에 src/auth/auth.decorator.ts도 보면...
 
 ```ts
 export interface MyContextType {
@@ -111,8 +111,8 @@ export const AuthUser = () => {
 };
 ```
 
-        이렇게 decorator를 custom해서 만들어 볼 수도 있다.
-        위 데코레이터도 간단한 소스 코드. context에서 user를 뽑아서 리턴해주는 것.
+이렇게 decorator를 custom해서 만들어 볼 수도 있다.
+위 데코레이터도 간단한 소스 코드. context에서 user를 뽑아서 리턴해주는 것.
 
 다시 main 함수에서..
 
