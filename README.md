@@ -36,8 +36,7 @@
 ### 2) package.json 설정
 
 ```json
-    "preinstall": "npx npm-force-resolutions",
-    "postinstall": "npx prisma generate",
+    "preinstall": "npx npm-force-resolutions",    
     "predev": "tsc",
     "dev": "cross-env NODE_ENV=debug tsc-watch --onSuccess 'node dist/index.js'",
     "migrate": "prisma migrate dev --preview-feature",
