@@ -11,7 +11,7 @@ interface UploadResult extends RemoveResult {
   url?: string;
 }
 
-const BUCKET_NAME = "ninstaclone";
+const BUCKET_NAME = process.env.BUCKET_NAME!;
 
 // FileUpload from dto/file.upload.ts
 export const uploadFile = async (file: FileUpload): Promise<UploadResult> => {
@@ -49,6 +49,8 @@ export const uploadFile = async (file: FileUpload): Promise<UploadResult> => {
       readStream.pipe(upload);
 
       // handle events for s3-upload-stream
+      // upload 끝나는 걸 기다리기 위해.. 아래와 같이 promise를 이용함.
+      // 이렇게 안하고 putObject(...).promise()로 해도...
       const end = new Promise<string | null>((resolve, reject) => {
         upload.on("error", () => {
           reject("Error occured on file uploading");

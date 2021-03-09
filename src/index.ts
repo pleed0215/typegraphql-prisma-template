@@ -17,7 +17,7 @@ import { Context } from "node:vm";
 dotenv.config({ path: __dirname + "/../.env" });
 
 const PORT = +process.env.PORT! || 3000;
-let schema: GraphQLSchema;
+
 const app = express();
 const httpServer = http.createServer(app);
 
