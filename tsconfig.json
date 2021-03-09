@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "lib": ["ES2018", "ESNext.AsyncIterable"],
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "declaration": true,
+    "module": "CommonJS",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "removeComments": false,
+    "importHelpers": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "incremental": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
